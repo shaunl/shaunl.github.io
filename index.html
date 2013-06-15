@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>./shaunl.github.io</title>
+    <title>shaunl.github.io</title>
 
     <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="assets/css/custom.css"/>
     <link rel="stylesheet" href="assets/css/bootstrap-responsive.min.css"/>
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 
@@ -11,24 +12,57 @@
     <meta charset="utf-8">
 </head>
 <body data-spy="scroll">
-<div class="navbar navbar-fixed-top navbar-inverse">
-    <div class="navbar-inner">
-        <div class="container-fluid">
-            <a class="brand" href="#">./shaunl.github.io</a>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span10">
+                <div class="offset2">
+                    <h1>Site Under construction</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span10">
+                <div class="offset2">
+                    <h2>Loading....</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span10">
+                <div class="offset2">
+                    <div class="progress progress-success progress-striped">
+                        <div class="bar" id="progBar" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
-<div style="padding: 40px 0; display: block"></div>
+<script type="text/javascript">
+    var Loading = {
+        start: Date.UTC(2013, 05, 14, 23, 59, 00),
+        end: Date.UTC(2013, 06, 20),
+        current: function(){
+            var d = new Date();
 
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div class="span12">
-            <h1>PHP Developer in Dublin.</h1>
+            console.log('year:' + d.getFullYear());
+            console.log('month:' + d.getUTCMonth());
+            console.log('day:' + d.getUTCDate());
+            console.log('hours:' + d.getUTCHours());
 
-            <p>Coming Soon!</p>
-        </div>
-    </div>
-</div>
+            return Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), d.getUTCHours(), d.getUTCMinutes(), d.getUTCSeconds())
+        },
+        progress: function() {
+            var f = (this.current() - this.start) / (this.end - this.start);
+
+            return f * 100;
+        },
+        display: function() {
+            document.getElementById('progBar').style.width = this.progress() + '%';
+        }
+    };
+
+    setInterval(Loading.display(), 5000);
+</script>
 </body>
 </html>
