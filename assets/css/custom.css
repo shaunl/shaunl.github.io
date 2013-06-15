@@ -11,3 +11,8 @@ h1 {
 h2 {
     color: mediumpurple;
 }
+
+h3 {
+    color: orange;
+    text-align: center;
+}
