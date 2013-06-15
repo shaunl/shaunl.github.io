@@ -52,11 +52,6 @@
         current: function(){
             var d = new Date();
 
-            console.log('year:' + d.getFullYear());
-            console.log('month:' + d.getUTCMonth());
-            console.log('day:' + d.getUTCDate());
-            console.log('hours:' + d.getUTCHours());
-
             return Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), d.getUTCHours(), d.getUTCMinutes(), d.getUTCSeconds())
         },
         progress: function() {
@@ -70,7 +65,7 @@
         }
     };
 
-    setInterval(Loading.display(), 5000);
+    setInterval(function(){Loading.display()}, 5000);
 </script>
 </body>
 </html>
